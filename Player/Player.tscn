@@ -1,0 +1,44 @@
+[gd_scene load_steps=11 format=3 uid="uid://b7x2ve32epixf"]
+
+[ext_resource type="Script" uid="uid://daktfrwgvoyn7" path="res://Player/player.gd" id="1_q3lat"]
+[ext_resource type="Texture2D" uid="uid://1mqvxnv0xn30" path="res://icon.svg" id="2_tok1r"]
+[ext_resource type="Script" uid="uid://deq6lu1tqh5vg" path="res://Player/playerinputhandler.gd" id="3_8g4oa"]
+[ext_resource type="Script" uid="uid://by234feeaaekf" path="res://Player/movement_module.gd" id="4_6ysni"]
+[ext_resource type="Script" uid="uid://bs1hovbuc0rfr" path="res://Player/attackmanager.gd" id="5_vlldt"]
+[ext_resource type="Script" uid="uid://tedphk5yyhx" path="res://Player/crouch_module.gd" id="6_j23h2"]
+[ext_resource type="Script" uid="uid://c4aegxqlnqbue" path="res://Player/ground_module.gd" id="7_0j2ni"]
+[ext_resource type="Script" uid="uid://dip23vn8cqc4g" path="res://Player/wall_module.gd" id="8_v0k0e"]
+[ext_resource type="Script" uid="uid://tpq20s6ch7fe" path="res://Player/dash_module.gd" id="9_5wa8t"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ddoul"]
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_q3lat")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_ddoul")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.15625, 0.21875)
+texture = ExtResource("2_tok1r")
+
+[node name="InputModule" type="Node2D" parent="."]
+script = ExtResource("3_8g4oa")
+
+[node name="MovementModule" type="Node2D" parent="."]
+script = ExtResource("4_6ysni")
+
+[node name="AbilityModule" type="Node2D" parent="."]
+script = ExtResource("5_vlldt")
+
+[node name="CrouchModule" type="Node2D" parent="."]
+script = ExtResource("6_j23h2")
+
+[node name="GroundModule" type="Node2D" parent="."]
+script = ExtResource("7_0j2ni")
+
+[node name="WallModule" type="Node2D" parent="."]
+script = ExtResource("8_v0k0e")
+
+[node name="DashModule" type="Node2D" parent="."]
+script = ExtResource("9_5wa8t")
